@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // klasa nadrzędna
+      class Vehicle {
+        constructor(make, model, year) {
+          this.make = make;
+          this.model = model;
+          this.year = year;
+        }
+
+        getMake() {
+          return this.make;
+        }
+
+        getModel() {
+          return this.model;
+        }
+
+        getYear() {
+          return this.year;
+        }
+
+        getInfo() {
+          return `Make: ${this.make}, Model: ${this.model}, Year: ${this.year}`;
+        }
+      }
+
+      // klasa podrzędna
+      class Car extends Vehicle {
+        constructor(make, model, year, numDoors) {
+          super(make, model, year);
+          this.numDoors = numDoors;
+        }
+
+        getNumDoors() {
+          return this.numDoors;
+        }
+
+        getInfo() {
+          return `${super.getInfo()}, NumDoors: ${this.numDoors}`;
+        }
+      }
+
+      // klasa podrzędna
+      class Motorcycle extends Vehicle {
+        constructor(make, model, year, numWheels) {
+          super(make, model, year);
+          this.numWheels = numWheels;
+        }
+
+        getNumWheels() {
+          return this.numWheels;
+        }
+
+        getInfo() {
+          return `${super.getInfo()}, NumWheels: ${this.numWheels}`;
+        }
+      }
+
+      // przykładowe użycie
+      const myCar = new Car("Toyota", "Camry", 2022, 4);
+      console.log(myCar.getInfo());
+      console.log(`Make: ${myCar.getMake()}, NumDoors: ${myCar.getNumDoors()}`);
+
+      const myMotorcycle = new Motorcycle(
+        "Harley Davidson",
+        "Road King",
+        2021,
+        2
+      );
+      console.log(myMotorcycle.getInfo());
+      console.log(
+        `Model: ${myMotorcycle.getModel()}, NumWheels: ${myMotorcycle.getNumWheels()}`
+      );
+    </script>
+  </body>
+</html>
