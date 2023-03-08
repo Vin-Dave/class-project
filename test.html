@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Shape {
+        constructor(color) {
+          this.color = color;
+        }
+
+        getColor() {
+          return this.color;
+        }
+      }
+
+      class Circle extends Shape {
+        constructor(color, radius) {
+          super(color);
+          this.radius = radius;
+        }
+
+        getArea() {
+          return Math.PI * this.radius * this.radius;
+        }
+      }
+
+      const redCircle = new Circle("red", 5);
+      console.log(
+        `Color: ${redCircle.getColor()}, Area: ${redCircle.getArea()}`
+      );
+    </script>
+  </body>
+</html>
