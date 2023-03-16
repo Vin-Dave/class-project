@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Generator losowych haseł</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Generator losowych haseł</h1>
+      <form>
+        <label for="length">Długość hasła:</label>
+        <input type="number" id="length" min="4" max="20" value="8" />
+
+        <fieldset>
+          <legend>Rodzaj znaków:</legend>
+          <input type="checkbox" id="lowercase" checked />
+          <label for="lowercase">Małe litery (a-z)</label><br />
+
+          <input type="checkbox" id="uppercase" checked />
+          <label for="uppercase">Wielkie litery (A-Z)</label><br />
+
+          <input type="checkbox" id="numbers" checked />
+          <label for="numbers">Cyfry (0-9)</label><br />
+
+          <input type="checkbox" id="symbols" checked />
+          <label for="symbols">Znaki specjalne (@#$%)</label>
+        </fieldset>
+
+        <button type="submit">Generuj hasło</button>
+      </form>
+
+      <div id="password"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
