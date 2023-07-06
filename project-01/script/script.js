@@ -1,11 +1,13 @@
-const circles = document.querySelectorAll(".circle");
-const lime = document.querySelector(".lime");
-const blue = document.querySelector("blue");
-const gold = document.querySelector(".gold");
-const div = document.createElement("div");
+const liList = document.querySelectorAll("li");
+const number = 5;
 
-circles.forEach((circle) =>
-  circle.addEventListener("click", () => console.log(circle))
-);
-div.classList.add("purple");
-gold.appendChild(div);
+console.log(liList);
+for (let i = 0; i < 10; i++) {
+  liList.textContent = number;
+}
+
+for (let i = 0; i < liList.length; i++) {
+  liList[i].textContent = number;
+  liList[i].dataset.id = number;
+  liList[i].dataset.numberSet = number;
+}
