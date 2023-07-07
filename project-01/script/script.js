@@ -1,13 +1,13 @@
-const liList = document.querySelectorAll("li");
-const number = 5;
+const item1 = document.querySelector(".item1");
+const btn = document.querySelector(".arrow");
+const arrow = document.querySelector(".fas");
 
-console.log(liList);
-for (let i = 0; i < 10; i++) {
-  liList.textContent = number;
-}
+const showImage = () => {
+  item1.classList.toggle("hide");
 
-for (let i = 0; i < liList.length; i++) {
-  liList[i].textContent = number;
-  liList[i].dataset.id = number;
-  liList[i].dataset.numberSet = number;
-}
+  item1.classList.contains("hide")
+    ? (arrow.style.transform = "rotate(180deg)")
+    : (arrow.style.transform = "rotate(0)");
+};
+
+btn.addEventListener("click", showImage);
