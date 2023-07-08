@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  font-family: "Ubuntu", sans-serif;
+  color: #fff;
+  background-color: #1e1d23;
+}
+div {
+  padding: 50px;
+}
+p {
+  font-size: 36px;
+}
+
+button {
+  margin: 0 30px;
+  padding: 10px 30px;
+  background: none;
+  border: 2px solid #411457;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 36px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 0.3s, box-shadow 0.3s;
+  box-shadow: 3px 3px 10px #3e0a57;
+}
+
+button:hover {
+  color: #d73a3a;
+  box-shadow: 3px 3px 10px #411457;
+}
