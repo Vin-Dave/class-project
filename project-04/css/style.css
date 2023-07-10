@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  font-family: "Ubuntu", sans-serif;
+  color: #fff;
+  background-color: #1e1d23;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 600px;
+  min-height: 200px;
+  padding: 30px;
+  border-radius: 8px;
+  background-color: #d04545;
+}
+
+.fun-fact {
+  margin-top: 20px;
+}
