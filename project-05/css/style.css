@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  font-family: "Ubuntu", sans-serif;
+  color: #fff;
+  background-color: #1e1d23;
+}
+div {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  top: 0;
+  left: 0;
+  transition: 0.45s ease;
+  background-color: red;
+  animation: move 5s linear infinite;
+}
+
+div:nth-child(2) {
+  background-color: green;
+  animation: move 2s linear infinite;
+}
+div:nth-child(3) {
+  background-color: purple;
+  animation: move 1s linear infinite;
+}
+@keyframes move {
+  0% {
+    top: 0;
+    left: 0;
+  }
+  25% {
+    top: 0;
+    left: calc(100% - 30px);
+  }
+  50% {
+    left: calc(100% - 30px);
+    top: calc(100% - 30px);
+  }
+  75% {
+    left: 0;
+    top: calc(100% - 30px);
+  }
+  100% {
+  }
+}
