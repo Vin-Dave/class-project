@@ -5,47 +5,47 @@
 }
 
 body {
+  display: flex;
   height: 100vh;
   font-family: "Ubuntu", sans-serif;
   color: #fff;
   background-color: #1e1d23;
+  justify-content: center;
+  align-items: center;
 }
-div {
-  position: absolute;
-  height: 30px;
-  width: 30px;
-  top: 0;
-  left: 0;
-  transition: 0.45s ease;
-  background-color: red;
-  animation: move 5s linear infinite;
-}
+.panel {
+  display: flex;
 
-div:nth-child(2) {
-  background-color: green;
-  animation: move 2s linear infinite;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: space-between;
+  background-color: black;
+  flex-basis: 60%;
+  min-width: 600px;
+  flex-wrap: wrap;
+  height: 85vh;
 }
-div:nth-child(3) {
-  background-color: purple;
-  animation: move 1s linear infinite;
+.result {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: aliceblue;
+  flex-basis: 100%;
+  height: 15vh;
+  font-size: 10vh;
+  padding-right: 25px;
+  color: black;
 }
-@keyframes move {
-  0% {
-    top: 0;
-    left: 0;
-  }
-  25% {
-    top: 0;
-    left: calc(100% - 30px);
-  }
-  50% {
-    left: calc(100% - 30px);
-    top: calc(100% - 30px);
-  }
-  75% {
-    left: 0;
-    top: calc(100% - 30px);
-  }
-  100% {
-  }
+div.result ~ div {
+  flex-basis: 30%;
+  height: 10vh;
+
+  border: 2px solid red;
+  font-size: 6vh;
+  text-align: center;
+  line-height: 10vh;
+}
+div > div:nth-last-child(1),
+div > div:nth-last-child(2) {
+  flex-basis: 45%;
 }
