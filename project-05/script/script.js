@@ -1,11 +1,14 @@
-const rotateBtn = document.querySelector(".addbtn");
-const sqrDiv = document.querySelector(".square");
+const div = document.querySelector(".time");
 
-const addBtnFc = () => {
-  const newDiv = document.createElement("div");
-  newDiv.classList.add("square");
-  sqrDiv.appendChild(newDiv);
-  console.log("dodano");
+setTime = () => {
+  let time = 0;
+  function timeClosure() {
+    time++;
+
+    div.textContent = `${time} sekund`;
+  }
+  return timeClosure;
 };
+const y = setTime();
 
-rotateBtn.addEventListener("click", addBtnFc);
+const x = setInterval(y, 100);
