@@ -5,23 +5,26 @@
 }
 
 body {
-  display: flex;
-  flex-direction: row;
   height: 100vh;
   font-family: "Ubuntu", sans-serif;
   color: #fff;
 
   background-color: #1e1d23;
 }
-
-.time {
-  width: 100%;
-  height: 150px;
-  background-color: azure;
-  line-height: 150px;
-  color: #1e1d23;
+form {
+  margin: 20px;
+  padding: 20px;
+  font-size: 3rem;
+}
+form input,
+form button {
   font-size: 2rem;
-  text-align: center;
-  transition: 0.45s ease;
-  margin: 5px;
+}
+ul {
+  padding-left: 50px;
+}
+
+h1 {
+  margin: 40px;
+  font-size: 3rem;
 }
