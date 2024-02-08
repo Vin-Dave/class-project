@@ -2,9 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { App } from "./App";
-import FoldersList from "./components/folders-list/FoldersList";
-import NotesList from "./components/notes-list/NotesList";
-import { Note } from "./components/note/Note";
+import FoldersList, {
+  createFolder,
+} from "./components/folders-list/FoldersList";
+import NotesList, { createNote } from "./components/notes-list/NotesList";
+import { Note, updateMemo } from "./components/note/Note";
+import { NotFound } from "./components/not-found/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +16,8 @@ const router = createBrowserRouter([
     loader: () => {
       return fetch("http://localhost:3000/folders");
     },
+    action: createFolder,
+
     children: [
       {
         path: "/memos/:folderId",
@@ -22,13 +27,15 @@ const router = createBrowserRouter([
             `http://localhost:3000/notes?folderId=${params.folderId}`
           );
         },
+        action: createNote,
         children: [
           {
-            path: "/memos/:folderId/memo/:memoId",
+            path: "memo/:memoId",
             element: <Note />,
             loader: ({ params }) => {
               return fetch(`http://localhost:3000/notes/${params.memoId}`);
             },
+            action: updateMemo,
           },
         ],
       },

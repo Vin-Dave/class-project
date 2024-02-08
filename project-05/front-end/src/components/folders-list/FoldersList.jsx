@@ -5,7 +5,7 @@ import { Folder } from "../folder/Folder";
 import { Title } from "../title/Title";
 import { TopBar } from "../top-bar/TopBar";
 import { AddNewButton } from "../add-new-button/AddNewButton";
-import { NavLink, useLoaderData } from "react-router-dom";
+import { Form, NavLink, useLoaderData } from "react-router-dom";
 
 const Folders = ({ children }) => (
   <div className={styles["folders-column"]}>{children}</div>
@@ -15,18 +15,32 @@ const UserCreatedFolders = ({ children }) => (
     {children}
   </div>
 );
+export async function createFolder(args) {
+  const data = await args.request.formData();
+  const folderName = data.get("name-folder");
 
+  return fetch("http://localhost:3000/folders", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ name: folderName }),
+  });
+}
 const FoldersList = () => {
   const folders = useLoaderData();
   return (
     <Folders>
       <TopBar>
-        <input
-          className={styles["new-folder-input"]}
-          type="text"
-          placeholder="Nazwa folderu"
-        />
-        <AddNewButton type="submit">+</AddNewButton>
+        <Form action="/" method="POST">
+          <input
+            className={styles["new-folder-input"]}
+            type="text"
+            placeholder="Nazwa folderu"
+            name="name-folder"
+          />
+          <AddNewButton type="submit">+</AddNewButton>
+        </Form>
       </TopBar>
 
       <Title>Foldery</Title>
