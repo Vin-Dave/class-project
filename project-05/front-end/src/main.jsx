@@ -6,7 +6,7 @@ import FoldersList, {
   createFolder,
 } from "./components/folders-list/FoldersList";
 import NotesList, { createNote } from "./components/notes-list/NotesList";
-import { Note, updateMemo } from "./components/note/Note";
+import { Note, deleteMemo, updateMemo } from "./components/note/Note";
 import { NotFound } from "./components/not-found/NotFound";
 
 const router = createBrowserRouter([
@@ -36,6 +36,12 @@ const router = createBrowserRouter([
               return fetch(`http://localhost:3000/notes/${params.memoId}`);
             },
             action: updateMemo,
+            children: [
+              {
+                action: deleteMemo,
+                path: "delete",
+              },
+            ],
           },
         ],
       },
